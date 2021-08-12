@@ -1,0 +1,184 @@
+from mpl_toolkits.mplot3d import axes3d
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib import style
+ 
+# -- 차트 스타일 설정
+style.use('ggplot')
+ 
+# --axes3d를 활용한 3D 그래프
+fig = plt.figure()
+ax1 = fig.add_subplot(111, projection='3d')
+
+
+
+ 
+# -- 데이터셋
+x3 = []    # 빈 리스트 생성
+
+
+for i in range(2, 13):
+    x3.append(i)
+for i in range(12, 1, -1):
+    x3.append(i)  
+    
+x3.extend([1,0,-1])
+
+for i in range(6):
+    x3.append(-2)
+for i in range(-1, 13):
+    x3.append(i)
+for i in range(12, -1, -1):
+    x3.append(i)
+x3.extend([-1, -2])
+for i in range(-2, 13):
+    x3.append(i)
+for i in range(12, -3, -1):
+    x3.append(i)
+for i in range(-2, 13):
+    x3.append(i)
+for i in range(12, -3, -1):
+    x3.append(i)
+for i in range(-2, 13):
+    x3.append(i)
+
+
+x3.extend([-3, -3, 13, 13, -3, -3, -3, 13, 13, 13])
+
+
+y3 = []    # 빈 리스트 생성
+
+
+for i in range(11):
+    y3.append(10)    
+for i in range(16):
+    y3.append(9)
+for i in range(18): ## 수정 19
+    y3.append(10)
+for i in range(15):
+    y3.append(9)   
+    
+for i in range(15):
+    y3.append(10) 
+for i in range(15):
+    y3.append(9) 
+for i in range(15):
+    y3.append(10)
+
+for i in range(15):
+    y3.append(9) 
+for i in range(15):
+    y3.append(10)
+
+y3.extend([6, 10, 6, 10])
+y3.extend([7, 8, 9, 7, 8, 9])
+    
+
+def myrange(start, end, step):
+    r = start
+    while(r<end):
+        yield r
+        r += step
+
+        
+z3= []        
+for i in myrange(0,0.7,0.1):
+    z3.append(i)
+for i in range(8):
+    z3.append(0.7)
+z3.extend([0.8, 0.9, 1, 1.1])
+
+for i in myrange(1.1, 1.4, 0.1):
+    z3.append(i)
+for i in range(8):
+    z3.append(1.4)
+for i in range(4):
+    z3.append(1.5)
+for i in myrange(1.6, 2.3, 0.1):
+    z3.append(i)
+for i in range(8):
+    z3.append(2.3)
+for i in myrange(2.4, 3.1, 0.1):
+    z3.append(i)
+for i in range(8):
+    z3.append(3.1)
+for i in myrange(3.2, 3.9, 0.1):
+    z3.append(i)
+for i in range(8):
+    z3.append(3.9)
+for i in myrange(4, 4.6, 0.1):
+    z3.append(i)
+for i in range(8):
+    z3.append(4.7)
+    
+for i in myrange(4.8, 5.4, 0.1):
+    z3.append(i)
+for i in range(8):
+    z3.append(5.5)
+for i in myrange(5.6, 6.2, 0.1):
+    z3.append(i)
+for i in range(8):
+    z3.append(6.3)
+for i in myrange(6.4, 7.0, 0.1):
+    z3.append(i)
+for i in range(4):
+    z3.append(7.1)
+for i in range(10):
+    z3.append(0)
+        
+    
+    
+    
+
+    
+    
+    
+print(z3)
+
+ 
+
+
+
+
+print (z3)
+# [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+
+
+
+
+
+ 
+dx = np.ones(145)
+dy = np.ones(145)
+
+t = []    # 빈 리스트 생성
+ 
+for i in range(135):
+    t.append(0.1)    # append로 요소 추가
+for i in range(10):
+    t.append(15)
+
+dz = t
+
+
+
+
+
+
+
+print (dx)                        # [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]
+print (dy)                        # [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]
+ 
+# -- Bar 3D 그래프 선언
+ax1.bar3d(x3, y3, z3, dx, dy, dz, color='#068fce')  #### 파란색일 경우 #068fce, 회색일경우 #6a6a6a
+
+
+ax1.set_xlabel('x axis')
+ax1.set_ylabel('y axis')
+ax1.set_zlabel('z axis')
+ 
+# -- Show
+plt.show()
+ 
+
+
